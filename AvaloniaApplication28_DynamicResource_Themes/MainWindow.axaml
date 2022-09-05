@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication28_DynamicResource_Themes.MainWindow"
+        Title="AvaloniaApplication28_DynamicResource_Themes"
+        xmlns:local="clr-namespace:AvaloniaApplication28_DynamicResource_Themes">
+
+    <local:DesignerSupport.DesignStyles>
+        <Styles>
+            <StyleInclude Source="/DefaultStyle.axaml" />
+        </Styles>
+    </local:DesignerSupport.DesignStyles>
+
+    <!--<Window.Styles>
+        
+    </Window.Styles>-->
+
+    <StackPanel>
+        <Button Click="MainWindow_Click"
+                Content="Change Theme" />
+
+        <Rectangle Fill="{DynamicResource ButtonForeground}"
+                   Width="100"
+                    />
+    </StackPanel>
+</Window>

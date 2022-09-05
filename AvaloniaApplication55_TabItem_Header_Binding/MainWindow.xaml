@@ -1,0 +1,35 @@
+<Window x:Class="AvaloniaApplication55_TabItem_Header_Binding.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:AvaloniaApplication55_TabItem_Header_Binding"
+        Title="AvaloniaApplication55_TabItem_Header_Binding"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        mc:Ignorable="d">
+
+    <Window.DataContext>
+        <vm:VM />
+    </Window.DataContext>
+
+    <Grid RowDefinitions="Auto,50,*">
+        <StackPanel Spacing="10"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+
+            <Button Command="{Binding Command1}"
+                    Content="Set Value #1" />
+
+            <Button Command="{Binding Command2}"
+                    Content="Set Value #2" />
+        </StackPanel>
+
+        <TabControl Classes="specialHeaders"
+                    Grid.Row="2">
+
+            <TabItem Header="{Binding TomEx.Tom.HeaderText, FallbackValue=Fallback Header}" />
+            <TabItem Header="Static Header" />
+        </TabControl>
+    </Grid>
+</Window>

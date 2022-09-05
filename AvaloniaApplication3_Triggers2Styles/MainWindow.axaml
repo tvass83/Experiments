@@ -1,0 +1,100 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:AvaloniaApplication3_Triggers2Styles"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication3_Triggers2Styles.MainWindow"
+        Title="AvaloniaApplication3_Triggers2Styles">
+
+  <Window.Styles>
+    <Style Selector="controls|PathButton">
+      <Setter Property="Width"
+              Value="64" />
+      <Setter Property="Height"
+              Value="64" />
+      <Setter Property="HorizontalContentAlignment"
+              Value="Center" />
+      <Setter Property="VerticalContentAlignment"
+              Value="Center" />
+      <Setter Property="Padding"
+              Value="6" />
+      <Setter Property="Margin"
+              Value="0, 2, 10, 2" />
+      <Setter Property="Background"
+              Value="Transparent" />
+      <Setter Property="Fill"
+              Value="#3975A9" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="controls:PathButton">
+            <Border x:Name="border"
+                    Background="{TemplateBinding Background}">
+
+              <!--<Border.Styles>
+                <Style Selector="Border#border:pointerover">
+                  <Setter Property="Background"
+                          Value="Red" />
+                  <Setter Property="BorderBrush"
+                          Value="Black" />
+                </Style>
+              </Border.Styles>-->
+
+              
+                <Border Background="Yellow" Margin="5">
+                <Path x:Name="path"    
+                      Width="16"
+                      Height="16"
+                      Data="{TemplateBinding Path}"
+                      Fill="{TemplateBinding Fill}" />
+                </Border>
+              
+            </Border>
+            <?ignore
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}" />
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}" />
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}" />
+                            <Setter Property="Fill" TargetName="path" Value="{StaticResource Button.Disabled.Foreground}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                <!--?>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+    <!--<Style Selector="controls|PathButton > Border#border:pointerover">-->
+    <!--<Style Selector="controls|PathButton > Border:pointerover">-->
+    <!--<Style Selector="controls|PathButton > Border:pointerover">-->
+    <!--<Style Selector="controls|PathButton Border:pointerover">-->
+    <!--<Style Selector="controls|PathButton /template/ Border:pointerover">-->
+    <!--<Style Selector="controls|PathButton /template/ Border#border:pointerover">-->
+    <Style Selector="controls|PathButton[IsDefault=true] Border">
+      <Setter Property="Background"
+              Value="Red" />
+      <Setter Property="BorderBrush"
+              Value="Black" />
+      <Setter Property="BorderThickness"
+              Value="1" />
+    </Style>
+  </Window.Styles>
+
+  <StackPanel>
+    <controls:PathButton Path="M0,0L384.885,191.965 769.768,383.928 384.885,576.035 0,768 0,383.928z" IsDefault="True" />
+    <controls:PathButton Path="M0,0L384.885,191.965 769.768,383.928 384.885,576.035 0,768 0,383.928z" />
+  </StackPanel>
+
+</Window>

@@ -1,0 +1,59 @@
+<Window x:Class="AvaloniaApplication53_Grid_Auto_Layouts.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="AvaloniaApplication53_Grid_Auto_Layouts"
+        d:DesignHeight="450"
+        d:DesignWidth="800"
+        mc:Ignorable="d">
+
+    <!--<Grid Background="Pink"
+          Height="100"
+          HorizontalAlignment="Center"
+          ShowGridLines="True"
+          VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"
+                           MaxHeight="80" />
+
+            <RowDefinition Height="Auto"
+                           MinHeight="40" />
+
+        </Grid.RowDefinitions>
+
+        <ListBox Margin="10,0,10,0">
+            <ListBoxItem Content="AAA" />
+            <ListBoxItem Content="BBB" />
+            <ListBoxItem Content="CCC" />
+        </ListBox>
+
+        <ListBox Background="LightCoral"
+                 Grid.Row="1"
+                 Margin="10,0,10,0">
+            <ListBoxItem Content="111" />
+            <ListBoxItem Content="222" />
+            <ListBoxItem Content="333" />
+        </ListBox>
+    </Grid>-->
+
+    <Grid Background="Pink"
+          Height="100"
+          HorizontalAlignment="Center"
+          RowDefinitions="Auto,Auto"
+          ShowGridLines="True"
+          VerticalAlignment="Center">
+
+        <ListBox Margin="10,0,10,0"
+                 MaxHeight="70">
+            <ListBoxItem Content="AAA" />
+            <ListBoxItem Content="BBB" />
+            <ListBoxItem Content="CCC" />
+        </ListBox>
+
+        <TextBlock Background="AliceBlue"
+                   Grid.Row="1"
+                   Margin="10,0,10,0"
+                   Text="Hello" />
+    </Grid>
+</Window>

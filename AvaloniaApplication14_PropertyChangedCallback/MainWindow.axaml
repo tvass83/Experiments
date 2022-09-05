@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AvaloniaApplication14_PropertyChangedCallback"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication14_PropertyChangedCallback.MainWindow"
+        Title="AvaloniaApplication14_PropertyChangedCallback">
+  <StackPanel>
+    <local:Control1 Name="c1"
+                    Foo="1"/>
+    <local:Control1 Name="c2"
+                    Foo="2" />
+  </StackPanel>
+</Window>

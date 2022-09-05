@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:local="clr-namespace:AvaloniaApplication10_EventSubscriptionInAxaml"
+        x:Class="AvaloniaApplication10_EventSubscriptionInAxaml.MainWindow"
+        Title="AvaloniaApplication10_EventSubscriptionInAxaml">
+  <Window.Styles>
+    <Style Selector="local|Control1">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate>
+            <Button Content="pakk" />
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </Window.Styles>
+  
+    <local:Control1 MagicEvent="Control1_MagicEvent" />
+</Window>

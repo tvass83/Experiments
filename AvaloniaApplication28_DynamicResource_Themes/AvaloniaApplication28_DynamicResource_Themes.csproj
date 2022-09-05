@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaXaml Remove="CustomStyle.axaml" />
+    <AvaloniaXaml Remove="DefaultStyle.axaml" />
+    <AvaloniaXaml Remove="Generic.axaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="CustomStyle.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Include="DefaultStyle.axaml" />
+    <AvaloniaResource Include="Generic.axaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.0" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
+   </ItemGroup>
+</Project>

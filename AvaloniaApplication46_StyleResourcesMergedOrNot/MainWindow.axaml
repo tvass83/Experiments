@@ -1,0 +1,91 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication46_StyleResourcesMergedOrNot.MainWindow"
+        Title="AvaloniaApplication46_StyleResourcesMergedOrNot">
+    <StackPanel>
+        <StackPanel.Styles>
+            <Style Selector="Button.ButtonStyleForward">
+                <Style.Resources>
+                    <SolidColorBrush x:Key="ThemeControlHighBrush"
+                                     Color="Red" />
+                </Style.Resources>
+
+                <Setter Property="Background"
+                        Value="Transparent" />
+                <Setter Property="BorderThickness"
+                        Value="0" />
+                <Setter Property="FocusAdorner"
+                        Value="{DynamicResource FocusVisual}" />
+                <Setter Property="FontFamily"
+                        Value="Arial" />
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="Foreground"
+                        Value="{TemplateBinding Foreground}" />
+                <Setter Property="Height"
+                        Value="32" />
+                <Setter Property="HorizontalContentAlignment"
+                        Value="Center" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="0,2,0,2" />
+                <Setter Property="Padding"
+                        Value="6" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <StackPanel Orientation="Horizontal">
+                                    <ContentPresenter x:Name="contentPresenter"
+                                                      Content="{TemplateBinding Content}"
+                                                      Focusable="False"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      Margin="6,6,-4,6"
+                                                      RecognizesAccessKey="True"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+                                    <Viewbox Margin="{TemplateBinding Padding}"
+                                             Stretch="Uniform">
+                                        <Canvas Name="svg2"
+                                                Height="28.158202"
+                                                Width="14.080079">
+                                            <Canvas Name="layer1">
+                                                <Canvas.RenderTransform>
+                                                    <TranslateTransform X="-25.4375"
+                                                                        Y="-1022.077" />
+                                                </Canvas.RenderTransform>
+                                                <Path Name="rect5815"
+                                                      Data="M 25.4375 1.7148438 C 25.44936 3.0075437 25.45333 4.30115 25.46484 5.59375 L 35.666016 15.792969 25.486328 25.972656 c -0.01539 1.3003 -0.02152 2.599991 -0.04687 3.900391 l 14.07812 -14.078125 z"
+                                                      Fill="{TemplateBinding Foreground}"
+                                                      StrokeJoin="Miter"
+                                                      StrokeLineCap="Square"
+                                                      StrokeThickness="1">
+                                                    <Path.RenderTransform>
+                                                        <TranslateTransform X="0"
+                                                                            Y="1020.3622" />
+                                                    </Path.RenderTransform>
+                                                </Path>
+                                            </Canvas>
+                                        </Canvas>
+                                    </Viewbox>
+                                </StackPanel>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalContentAlignment"
+                        Value="Center" />
+            </Style>
+        </StackPanel.Styles>
+        
+        <Button Classes="ButtonStyleForward" />
+        <Button Content="hello" />
+    </StackPanel>
+</Window>

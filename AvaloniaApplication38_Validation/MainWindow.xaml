@@ -1,0 +1,62 @@
+<Window x:Class="AvaloniaApplication38_Validation.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AvaloniaApplication38_Validation"
+        Title="AvaloniaApplication38_Validation"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <local:VM />
+    </Window.DataContext>
+
+    <StackPanel Orientation="Horizontal"
+                Spacing="10"
+                VerticalAlignment="Top">
+        <TextBox Watermark="Data Start Time"
+                 UseFloatingWatermark="True"
+                 Text="{Binding CustomText}"
+                 MinWidth="150" />
+        <Button Content="Go" />
+
+        <ListBox>
+            <ListBox.Styles>
+                <!--<Style Selector="ListBox[ItemCount=0]">
+                    <Setter Property="Background" Value="Red" />
+                </Style>
+
+                <Style Selector="ListBox[ItemCount=1]">
+                    <Setter Property="Background" Value="Pink" />
+                </Style>-->
+
+                <!--<Style Selector="ListBox:not(ListBox[ItemCount=0]):not(ListBox[ItemCount=1])">
+                    <Setter Property="Background" Value="YellowGreen" />
+                </Style>-->
+
+                <!--<Style Selector="ListBox[ItemCount=0],ListBox[ItemCount=1]">
+                    <Setter Property="Background" Value="Red" />
+                </Style>
+
+                <Style Selector="ListBox:not(:empty):not(:singleitem)">
+                    <Setter Property="Background" Value="YellowGreen" />
+                -->
+                <!--<Setter Property="Tag" Value="1" />-->
+                <!--
+                    <Setter Property="Tag" Value="{Binding IsEnabled, RelativeSource={RelativeSource Self}, StringFormat='\{0\}'}" />
+                </Style>
+
+                <Style Selector="ListBox[Tag=True]">
+                    <Setter Property="Foreground" Value="White" />
+                </Style>-->
+                <Style Selector="ListBox">
+                    <Setter Property="Margin" Value="0 2 4 5" />
+                </Style>
+            </ListBox.Styles>
+
+            <ListBoxItem Content="aaa" />
+            <ListBoxItem Content="bbb" />
+        </ListBox>
+    </StackPanel>
+</Window>

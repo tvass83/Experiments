@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication39_StyleTriggers.MainWindow"
+        Title="AvaloniaApplication39_StyleTriggers">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="ThemeControlHighBrush"
+                         Color="Red" />
+    </Window.Resources>
+
+    <Window.Styles>
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background"
+                    Value="Green" />
+        </Style>
+
+        <Style Selector="Button.tomi:pressed">
+            <Setter Property="Background"
+                    Value="Blue" />
+        </Style>
+
+        <Style Selector="ComboBox /template/ Popup#PART_Popup">
+            <Setter Property="WindowManagerAddShadowHint"
+                    Value="True" />
+        </Style>
+    </Window.Styles>
+
+    <StackPanel Background="YellowGreen">
+
+
+
+        <Button Content="hello"
+                x:Name="_button1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+        </Button>
+
+        <ComboBox SelectedIndex="0"
+                  HorizontalAlignment="Center">
+            <ComboBoxItem Content="aaa" />
+            <ComboBoxItem Content="bbb" />
+        </ComboBox>
+    </StackPanel>
+</Window>

@@ -1,0 +1,28 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication43_SelectedItem.MainWindow"
+        xmlns:local="clr-namespace:AvaloniaApplication43_SelectedItem"
+        Title="AvaloniaApplication43_SelectedItem">
+    <StackPanel>
+
+        <StackPanel.DataContext>
+            <local:VM />
+        </StackPanel.DataContext>
+
+        <ComboBox Name="combobox1"
+                  Items="{Binding Tracks, Mode=OneWay}"
+                  SelectedItem="{Binding SelectedAngle, Mode=TwoWay}">
+
+        </ComboBox>
+
+        <Button Content="Reset"
+                Command="{Binding ResetCommand}"
+                Name="btn"
+                 />
+    </StackPanel>
+</Window>

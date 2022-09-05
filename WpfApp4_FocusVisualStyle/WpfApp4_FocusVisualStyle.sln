@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp4_FocusVisualStyle", "WpfApp4_FocusVisualStyle.csproj", "{E6563736-3225-4148-9E14-5C7C832F6F58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6563736-3225-4148-9E14-5C7C832F6F58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6563736-3225-4148-9E14-5C7C832F6F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6563736-3225-4148-9E14-5C7C832F6F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6563736-3225-4148-9E14-5C7C832F6F58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB6C575E-DD04-44FD-9F0F-0397CA8D0767}
+	EndGlobalSection
+EndGlobal

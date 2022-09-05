@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:AvaloniaApplication2_DesignDataContext"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication2_DesignDataContext.MainWindow"
+        Title="AvaloniaApplication2_DesignDataContext">
+
+  <!-- DesignMode properties are ignored at runtime
+       see https://github.com/AvaloniaUI/Avalonia/blob/7842883961d094e08e9def7f30cf32fd573179c7/tests/Avalonia.Markup.Xaml.UnitTests/Xaml/BasicTests.cs#L900  -->
+
+  <!-- Setting a design datacontext would also work by providing a static instance to d:DataContext  -->
+  <!-- d:DataContext="{x:Static vm:VM.Instance}"-->
+    
+  <Design.DataContext>
+    <vm:VM />
+  </Design.DataContext>
+
+  <Label Content="{Binding ContentText, FallbackValue=#ContentText}" />
+</Window>

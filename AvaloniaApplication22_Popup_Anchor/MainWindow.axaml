@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="300"
+        d:DesignHeight="250"
+        x:Class="AvaloniaApplication22_Popup_Anchor.MainWindow"
+        Title="AvaloniaApplication22_Popup_Anchor">
+
+  <Window.KeyBindings>
+    
+  </Window.KeyBindings>
+  
+  <Grid Background="Gray"
+        x:Name="mainGrid">
+    <!--<Popup IsOpen="True"
+           PlacementTarget="{Binding ElementName=mainGrid}"
+           PlacementRect="500,500,750,750"
+           HorizontalOffset="100"
+           PlacementMode="AnchorAndGravity"
+           PlacementAnchor="TopLeft"
+           PlacementGravity="BottomRight"
+           >
+      <Grid Margin="10"
+            Background="AliceBlue">
+        <CalendarDatePicker />
+        
+      </Grid>
+    </Popup>-->
+    <!--<Calendar />-->
+    <Rectangle
+      Width="100"
+      Height="100"
+      Stroke="Black"
+      StrokeThickness="1"
+      StrokeDashArray="3,10"
+       />
+  </Grid>
+</Window>

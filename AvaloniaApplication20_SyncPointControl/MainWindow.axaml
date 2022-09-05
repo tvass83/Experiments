@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="100" d:DesignHeight="80"
+        xmlns:local="clr-namespace:AvaloniaApplication20_SyncPointControl"
+        x:Class="AvaloniaApplication20_SyncPointControl.MainWindow"
+        Title="AvaloniaApplication20_SyncPointControl">
+  <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+    
+    <StackPanel.Styles>
+      <Style Selector="local|SyncPointControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:SyncPointControl}">
+                    <Grid Background="Green" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Ellipse x:Name="topEllipse" Grid.Row="0" Width="7" Height="7" Fill="Yellow"/>
+                        <Grid x:Name="middleGrid" Grid.Row="1" Width="1" Background="{Binding ElementName=topEllipse, Path=Fill}" />
+                        <Ellipse x:Name="topEllipseOverlay" Grid.Row="0" Width="7" Height="7"  Fill="Red" />
+                        <Grid x:Name="middleGridOverlay" Grid.Row="1" Width="1" Background="{Binding ElementName=topEllipseOverlay, Path=Fill}" Opacity="{Binding ElementName=topEllipseOverlay, Path=Opacity}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Height" Value="24" />
+    </Style>
+    </StackPanel.Styles>
+    
+    <local:SyncPointControl />
+  </StackPanel>
+</Window>

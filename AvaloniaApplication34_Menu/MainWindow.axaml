@@ -1,0 +1,103 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication34_Menu.MainWindow"
+        xmlns:local="clr-namespace:AvaloniaApplication34_Menu"
+        xmlns:sys="clr-namespace:System;assembly=netstandard"
+        Title="AvaloniaApplication34_Menu">
+
+    <Window.Styles>
+        <Style Selector="MenuItem.special">
+            <Setter Property="Padding"
+                    Value="0,0,3,0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Panel>
+                            <ContentPresenter Name="PART_HeaderPresenter"
+                                              Content="{TemplateBinding Header}"
+                                              Margin="{TemplateBinding Padding}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="sys:String">
+                                        <AccessText Text="{Binding}"/>
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                            <Popup Name="PART_Popup"
+                                   IsLightDismissEnabled="True"
+                                   OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                                   IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ScrollViewer Classes="menuscroller">
+                                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                                        Items="{TemplateBinding Items}"
+                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                        ItemTemplate="{TemplateBinding ItemTemplate}"
+                                                        Grid.IsSharedSizeScope="True"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Panel>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="MenuItem.special /template/ Border#root:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource MenuFlyoutItemBackgroundPressed}" />
+        </Style>
+    </Window.Styles>
+
+    <StackPanel>
+
+    <Menu VerticalAlignment="Top" HorizontalAlignment="Left">
+        <MenuItem>
+
+            <MenuItem.Header>
+                <Path Data="M0,6L21,6 21,8 3,8 3,6 M3,11L21,11 21,13 3,13 3,11 M3,16L21,16 21,18 3,18 3,16z"
+                      Height="24"
+                      Width="24"
+                      Fill="Black" />
+            </MenuItem.Header>
+
+            <!--for external submenu is disabled / hidden-->
+            <MenuItem Header="Sport: Baseball">
+                <MenuItem Header="Baseball" />
+                <MenuItem Header="Softball" />
+            </MenuItem>
+
+            <Separator/>
+
+            <MenuItem Header="Settings" />
+
+            <Separator/>
+
+            <MenuItem Header="About" />
+            <MenuItem Header="Check for Updates" />
+            <MenuItem Header="Help" />
+            <MenuItem Header="Video Guides" />
+
+            <Separator/>
+
+            <MenuItem Header="Log Out" />
+
+            <Separator/>
+
+            <MenuItem Header="Exit" />
+        </MenuItem>
+    </Menu>
+
+        <local:UserControl1 />
+        
+    </StackPanel>
+</Window>

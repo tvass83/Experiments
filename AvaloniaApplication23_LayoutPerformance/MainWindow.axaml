@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="1200"
+        d:DesignHeight="450"
+        Width="800"
+        Height="600"
+        x:Class="AvaloniaApplication23_LayoutPerformance.MainWindow"
+        Title="AvaloniaApplication23_LayoutPerformance">
+  <StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Button Content="Generate"
+              Click="ClickHandler" />
+      <Button Content="Hide"
+              Click="HideHandler" />
+    </StackPanel>
+
+    <Grid>
+    <Grid>
+    <Grid>
+      <ScrollViewer HorizontalAlignment="Center"                    
+                    HorizontalScrollBarVisibility="Auto"
+                    Background="LightBlue">
+        <Canvas x:Name="canvas" 
+                Width="15000"
+                Height="300">
+          <Canvas.Background>
+            <LinearGradientBrush EndPoint="0%,50%"
+                                 StartPoint="50%,50%">
+              <GradientStop Color="#FFFFC934"
+                            Offset="0"/>
+              <GradientStop Color="#FFFF0000"
+                            Offset="1"/>
+            </LinearGradientBrush>
+          </Canvas.Background>
+        </Canvas>
+      </ScrollViewer>
+    </Grid>
+</Grid>
+</Grid>
+  </StackPanel>
+</Window>

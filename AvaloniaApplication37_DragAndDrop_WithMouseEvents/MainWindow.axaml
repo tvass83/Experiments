@@ -1,0 +1,126 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="400"
+        d:DesignHeight="450"
+        xmlns:g="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
+        xmlns:vm="clr-namespace:AvaloniaApplication37_DragAndDrop;assembly=AvaloniaApplication37_DragAndDrop"
+        x:Class="AvaloniaApplication37_DragAndDrop.MainWindow"
+        Title="AvaloniaApplication37_DragAndDrop">
+    <Window.Resources>
+        <DataTemplate x:Key="_angleDataTemplate"
+                      DataType="{x:Type vm:VM}">
+            <Grid>
+                <TextBlock Text="{Binding Angle}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="White" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="_playerPickerDataTemplate"
+                      DataType="{x:Type vm:VM}">
+            <Grid>
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                    <ToggleButton Content="Left"
+                                  IsChecked="{Binding IsLeft}"
+                                  Margin="0,5"/>
+
+                    <ToggleButton Content="Right"
+                                  IsChecked="{Binding !IsLeft}"
+                                  Margin="0,5" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:TestViewModel />
+    </Window.DataContext>
+
+    <Grid Background="Beige">
+        <g:DataGrid x:Name="_datagrid"
+                    DragDrop.AllowDrop="True"
+                    Items="{Binding Tracks}"
+                    Margin="20"
+                    Background="Gray"
+                    AlternatingRowBackground="#80aaaaaa"
+                    Width="300">
+
+            <!--<g:DataGrid.Styles>
+                <Style Selector="g|DataGridCell.angle">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <Template>
+                                <Grid Background="#3F3F3F">
+                                    <TextBlock Text="{Binding Angle}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Foreground="White" />
+                                </Grid>
+                            </Template>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style Selector="g|DataGridCell.player">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <Template>
+                                <Grid Background="#3F3F3F">
+                                    <StackPanel HorizontalAlignment="Center"
+                                                Orientation="Horizontal"
+                                                Spacing="10">
+                                        <ToggleButton Content="Left"
+                                                      IsChecked="{Binding IsLeft}"
+                                                      Margin="0,5"/>
+
+                                        <ToggleButton Content="Right"
+                                                      IsChecked="{Binding IsLeft}"
+                                                      Margin="0,5" />
+                                    </StackPanel>
+                                </Grid>
+                            </Template>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </g:DataGrid.Styles>-->
+
+            <g:DataGrid.Columns>
+                <g:DataGridTemplateColumn CellTemplate="{StaticResource _angleDataTemplate}"
+                                          Width="*">
+                    <g:DataGridColumn.Header>
+                        <TextBlock HorizontalAlignment="Center"
+                                   Text="Camera Angle" />
+                    </g:DataGridColumn.Header>
+
+                </g:DataGridTemplateColumn>
+
+                <g:DataGridTemplateColumn CellTemplate="{StaticResource _playerPickerDataTemplate}"
+                                          Width="*">
+                    <g:DataGridColumn.Header>
+                        <TextBlock HorizontalAlignment="Center"
+                                   Text="Video Display" />
+                    </g:DataGridColumn.Header>
+                </g:DataGridTemplateColumn>
+            </g:DataGrid.Columns>
+
+            <!--<DataGrid.Headers>
+                    <DataGridColumnHeader Content="Camera Angle">
+                        
+                    </DataGridColumnHeader>
+                </DataGrid.Headers>-->
+        </g:DataGrid>
+
+        <Rectangle x:Name="_dragCue"
+                   Fill="Black"
+                   Height="5"
+                   IsHitTestVisible="False"
+                   Width="300"
+                   VerticalAlignment="Top"
+                   IsVisible="False" />
+    </Grid>
+</Window>

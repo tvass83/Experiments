@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converters="clr-namespace:AvaloniaApplication31_ItemPresenter_ItemsBindingConverter.Converters"
+        xmlns:local="clr-namespace:AvaloniaApplication31_ItemPresenter_ItemsBindingConverter"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication31_ItemPresenter_ItemsBindingConverter.MainWindow"
+        Title="AvaloniaApplication31_ItemPresenter_ItemsBindingConverter">
+
+    <Window.Resources>
+        <converters:FilterInfoEventsConverter x:Key="filterInfoEventsConverter" />
+    </Window.Resources>
+
+    <Window.DataContext>
+        <local:VM />
+    </Window.DataContext>
+
+    <ItemsControl Grid.Row="2"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Items="{Binding AdditionalFields, Converter={StaticResource filterInfoEventsConverter}}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Vertical" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0"
+                                Margin="5"
+                                Orientation="Horizontal">
+                        <TextBlock Text="{Binding}" />
+                        <TextBlock Text=":"
+                                   Margin="4,0,0,0" />
+                    </StackPanel>
+                    <TextBlock Grid.Column="1"
+                               Margin="5"
+                               Text="n/a" />
+                </Grid>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</Window>

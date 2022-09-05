@@ -1,0 +1,144 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="400"
+        d:DesignHeight="250"
+        x:Class="AvaloniaApplication35_Tabs.MainWindow"
+        Title="AvaloniaApplication35_Tabs">
+
+    <Grid>
+        <Border BorderThickness="0"
+                Margin="10"
+                BorderBrush="Black">
+            <TabControl>
+                <TabControl.Styles>
+                    <Style Selector="TabItem">
+                        <Setter Property="Padding"
+                                Value="20,10" />
+                        <Setter Property="Margin"
+                                Value="0" />
+                        <Setter Property="BorderThickness"
+                                Value="1" />
+                        <Setter Property="BorderBrush"
+                                Value="Black"/>
+                        <Setter Property="Background"
+                                Value="LightGray" />
+                        <Setter Property="Foreground"
+                                Value="Black" />
+                        <Setter Property="FontSize"
+                                Value="12" />
+                    </Style>
+
+                    <Style Selector="TabControl">
+                        <Setter Property="Template">
+                            <ControlTemplate>
+                                <Border Background="{TemplateBinding Background}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                        Margin="{TemplateBinding Margin}"
+                                        VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                    <Grid RowDefinitions="Auto,*">
+
+                                        <Grid ColumnDefinitions="*,Auto,*"
+                                              ShowGridLines="False">
+
+                                            <Border BorderBrush="Black"
+                                                    BorderThickness="0,0,0,1" />
+
+                                            <ItemsPresenter Grid.Column="1"
+                                                            Name="PART_ItemsPresenter"
+                                                            Items="{TemplateBinding Items}"
+                                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                            ItemTemplate="{TemplateBinding ItemTemplate}" />
+
+                                            <Border Grid.Column="2"
+                                                    BorderBrush="Black"
+                                                    BorderThickness="0,0,0,1" />
+
+                                        </Grid>
+
+                                        <Border Grid.Row="1"
+                                                BorderBrush="Black"
+                                                BorderThickness="1,0,1,1">
+
+                                            <ContentPresenter Content="{TemplateBinding SelectedContent}"
+                                                              ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+                                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                              Margin="{TemplateBinding Padding}"
+                                                              Name="PART_SelectedContentHost"
+                                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                        </Border>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter>
+                    </Style>
+
+                    <!--<Style Selector="TabControl[TabStripPlacement=Top] /template/ ItemsPresenter#PART_ItemsPresenter">
+                        <Setter Property="HorizontalAlignment"
+                                Value="Center"/>
+                    </Style>-->
+
+                    <Style Selector="TabItem:selected">
+                        <Setter Property="Background"
+                                Value="White"/>
+                        <Setter Property="BorderThickness"
+                                Value="1,1,1,0" />
+                    </Style>
+
+                    <Style Selector="TabItem:pointerover">
+                        <Setter Property="Background"
+                                Value="#FFEEEEEE"/>
+                    </Style>
+
+                    <Style Selector="TabItem:selected:pointerover">
+                        <Setter Property="Background"
+                                Value="White"/>
+                    </Style>
+                </TabControl.Styles>
+
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="{Binding Source={RelativeSource FindAncestor, AncestorType=TabItem}, Path=BorderThickness}"
+                                BorderBrush="Black">
+                            <ContentPresenter Content="{Binding}" />
+                        </Border>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+
+                <TabControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                    Spacing="-1"/>
+                    </ItemsPanelTemplate>
+                </TabControl.ItemsPanel>
+
+                <TabItem Header="General">
+                    <Grid>
+                        <ComboBox HorizontalAlignment="Center"
+                                  Margin="30,70"
+                                  VerticalAlignment="Center"
+                                  SelectedIndex="0">
+                            <ComboBoxItem Content="hello" />
+                        </ComboBox>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Import">
+                    <Button Content="Click me"
+                            Margin="30,70"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                </TabItem>
+
+                <TabItem Header="Transfer">
+                    <Button Content="pakk"
+                            Margin="30,70"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                </TabItem>
+            </TabControl>
+        </Border>
+    </Grid>
+</Window>

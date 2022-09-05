@@ -1,0 +1,89 @@
+<Window x:Class="AvaloniaApplication24_DictionaryConverter.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AvaloniaApplication24_DictionaryConverter"
+        mc:Ignorable="d"
+        d:DesignWidth="600"
+        d:DesignHeight="150"
+        Title="AvaloniaApplication24_DictionaryConverter">
+
+  <Window.DataContext>
+    <local:VM />
+  </Window.DataContext>
+
+  <Window.Resources>
+
+    <Path x:Key="onlinePathData"
+          Data="M 25.4375 1.7148438 C 25.44936 3.0075437 25.45333 4.30115 25.46484 5.59375 L 35.666016 15.792969 25.486328 25.972656 c -0.01539 1.3003 -0.02152 2.599991 -0.04687 3.900391 l 14.07812 -14.078125 z" />
+
+    <DataTemplate x:Key="onlinePath">
+      <Path Stroke="Black"
+            StrokeThickness="1"
+            Fill="Blue"
+            Margin="10,0,0,0"
+            Data="{Binding Source={StaticResource onlinePathData}, Path=Data}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="offlinePath">
+      <Path Stroke="Black"
+            StrokeThickness="1"
+            Fill="Blue"
+            Margin="20,0,0,0"
+            Data="M 18.154297 2.1933594 4.0742188 16.273438 18.152344 30.351562 c -0.02536 -1.300399 -0.03148 -2.60009 -0.04687 -3.90039 L 7.9257812 16.271484 18.126953 6.0722656 c 0.01151 -1.2926 0.01548 -2.5862062 0.02734 -3.8789062 z"/>
+    </DataTemplate>
+
+    <!-- This is the fun part. I don't want the converter to inherit from Dictionary, just expose a property to fill with these mappings. -->
+
+    <local:Converter1 x:Key="conv1">
+      <local:Converter1.SyncStatePaths>
+        <StaticResourceExtension x:Key="{x:Static local:SyncState.Online}"
+                                 ResourceKey="onlinePath" />
+
+        <StaticResourceExtension x:Key="{x:Static local:SyncState.Offline}"
+                                 ResourceKey="offlinePath" />
+      </local:Converter1.SyncStatePaths>
+    </local:Converter1>
+  </Window.Resources>
+
+  <StackPanel>
+
+    <StackPanel.Styles>
+      <Style Selector="Button:pressed /template/ ContentPresenter">
+        <Setter Property="Background"
+                Value="Transparent" />
+      </Style>
+      <Style Selector="Button:pointerover /template/ ContentPresenter">
+        <Setter Property="BorderBrush"
+                Value="Transparent"/>
+
+        <!--<Setter Property="Background"
+                  Value="Transparent" />-->
+      </Style>
+    </StackPanel.Styles>
+
+    <Button ContentTemplate="{Binding SyncState, Converter={StaticResource conv1}}"
+            Content=""
+            Command="{Binding ChangeSyncStateCommand}"
+            CommandParameter="{Binding}"
+            Background="Transparent"
+            Width="100">
+    </Button>
+
+    <Button ContentTemplate="{Binding SyncState, Converter={StaticResource conv1}}"
+            Content=""
+            Command="{Binding ChangeSyncStateCommand}"
+            CommandParameter="{Binding}"
+            Background="Transparent"
+            Width="100">
+    </Button>
+
+
+
+    <!--<Button Content="dsfdgd"
+            Background="LightBlue" />-->
+
+  </StackPanel>
+
+</Window>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaApplication55_TabItem_Header_Binding", "AvaloniaApplication55_TabItem_Header_Binding.csproj", "{834CAC26-EAF3-481B-AE87-723940D7AFEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{834CAC26-EAF3-481B-AE87-723940D7AFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834CAC26-EAF3-481B-AE87-723940D7AFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834CAC26-EAF3-481B-AE87-723940D7AFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834CAC26-EAF3-481B-AE87-723940D7AFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87DD1EF3-CC5F-47E2-BD7B-DFDBDCD79F54}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="300"
+        d:DesignHeight="200"
+        x:Class="AvaloniaApplication5_ButtonStyleIsEnabled.MainWindow"
+        Title="AvaloniaApplication5_ButtonStyleIsEnabled">
+
+  <Window.Styles>
+    
+
+    <Style Selector="Button.buttonStyle1">
+      <Setter Property="Height"
+              Value="32" />
+      <Setter Property="Width"
+              Value="192" />
+      <Setter Property="Background"
+              Value="Purple" />
+      <!--<Setter Property="Opacity"
+              Value="0.3" />-->
+      <!--<Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type Button}">
+            <Grid x:Name="DarkOverlay"
+                  Background="{TemplateBinding Background}">
+              <StackPanel x:Name="inner"
+                          Width="20"
+                          Height="20" />
+            </Grid>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>-->
+    </Style>
+
+    <Style Selector="Button.buttonStyle1:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+
+    <Style Selector="Button.buttonStyle1[IsEnabled=true] /template/ StackPanel#inner">
+      <Setter Property="Opacity"
+              Value="1" />
+      <Setter Property="Background"
+              Value="Green" />
+    </Style>
+
+    <Style Selector="Button.buttonStyle1[IsEnabled=false] /template/ StackPanel#inner">
+      <Setter Property="Opacity"
+              Value="0.5" />
+      <Setter Property="Background"
+              Value="Red" />
+    </Style>
+
+    
+  </Window.Styles>
+
+  <StackPanel>
+    <Button Classes="buttonStyle1"
+            IsEnabled="True"
+            Content="Click me">
+    </Button>
+  
+  </StackPanel>
+</Window>

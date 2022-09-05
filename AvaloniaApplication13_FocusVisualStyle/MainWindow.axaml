@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication13_FocusVisualStyle.MainWindow"
+        Title="AvaloniaApplication13_FocusVisualStyle">
+  <StackPanel>
+
+    <StackPanel.Resources>
+      <FocusAdornerTemplate x:Key="FocusVisual">
+        <Border BorderBrush="Red"
+                BorderThickness="1" />
+      </FocusAdornerTemplate>
+    </StackPanel.Resources>
+
+    <StackPanel.Styles>
+      <Style Selector="Button">
+        <Setter Property="FocusAdorner" Value="{StaticResource FocusVisual}">
+          <!--<Setter.Value>
+            <FocusAdornerTemplate>
+              <Border BorderBrush="Black"
+                      BorderThickness="1" />
+            </FocusAdornerTemplate>
+          </Setter.Value>-->
+        </Setter>
+      </Style>
+    </StackPanel.Styles>
+    <Button Content="click me" />
+    <Button Content="click meeee" />
+  </StackPanel>
+</Window>

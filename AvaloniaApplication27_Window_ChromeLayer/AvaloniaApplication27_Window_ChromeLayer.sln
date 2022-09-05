@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaApplication27_Window_ChromeLayer", "AvaloniaApplication27_Window_ChromeLayer.csproj", "{640A4B90-22E4-40A4-B815-163811F705C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{640A4B90-22E4-40A4-B815-163811F705C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640A4B90-22E4-40A4-B815-163811F705C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640A4B90-22E4-40A4-B815-163811F705C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640A4B90-22E4-40A4-B815-163811F705C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E11F317F-3139-491B-B73D-3AC30F57BCB4}
+	EndGlobalSection
+EndGlobal

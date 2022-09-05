@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication25_StaticControlTemplateWithTrigger.MainWindow"
+        Title="AvaloniaApplication25_StaticControlTemplateWithTrigger">
+
+  <Window.Resources>
+    <ControlTemplate x:Key="buttonTemplate"
+                     TargetType="Button">
+      <Border x:Name="border"
+              BorderBrush="Black"
+              BorderThickness="1">
+        <Path x:Name="grip"
+              Data="M 0,0 C0,0 11,0 11,0 11,0 11,18 11,18 11,18 0,18 0,18 0,18 0,0 0,0 z"
+              Stretch="Fill"
+              StrokeThickness="1"
+              UseLayoutRounding="True"
+              VerticalAlignment="Center">
+          <Path.Styles>
+            <Style Selector="Path">
+              <Setter Property="Fill"
+                      Value="Red" />
+            </Style>
+          </Path.Styles>
+        </Path>
+      </Border>
+    </ControlTemplate>
+  </Window.Resources>
+
+  <Window.Styles>
+
+
+    <Style Selector="Button /template/ Path#grip:pointerover">
+      <Setter Property="Fill"
+              Value="Green"/>
+    </Style>
+  </Window.Styles>
+
+  <StackPanel>
+    <Button Content="hello"
+            Width="100"
+            Height="100"
+            Template="{StaticResource buttonTemplate}">
+
+    </Button>
+  </StackPanel>
+</Window>

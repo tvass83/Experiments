@@ -1,0 +1,130 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="AvaloniaApplication27_Window_ChromeLayer.MainWindow"
+        SystemDecorations="Full"
+        ExtendClientAreaChromeHints="PreferSystemChrome"
+        ExtendClientAreaTitleBarHeightHint="30"
+        ExtendClientAreaToDecorationsHint="True"
+        SizeToContent="WidthAndHeight"
+        CanResize="False"
+        Title="Test App">
+
+    <Window.Styles>
+        <Style Selector="TitleBar">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource ThemeForegroundBrush}"/>
+            <Setter Property="VerticalAlignment"
+                    Value="Top" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+            <Setter Property="Background"
+                    Value="LightBlue" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Panel HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                           VerticalAlignment="Stretch">
+                        <Panel x:Name="PART_MouseTracker"
+                               Height="1"
+                               VerticalAlignment="Top" />
+                        <Panel x:Name="PART_Container">
+                            <Border x:Name="PART_Background"
+                                    Background="{TemplateBinding Background}" />
+                            <TextBlock Margin="5,5,0,0"
+                                       IsHitTestVisible="False"
+                                       VerticalAlignment="Top"
+                                       HorizontalAlignment="Left"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Text="{Binding $parent[Window].Title}" />
+                            <CaptionButtons x:Name="PART_CaptionButtons"
+                                            VerticalAlignment="Top"
+                                            HorizontalAlignment="Right"
+                                            Foreground="{TemplateBinding Foreground}" />
+                        </Panel>
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="CaptionButtons">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource ThemeForegroundBrush}"/>
+            <Setter Property="MaxHeight"
+                    Value="130" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <StackPanel Spacing="2"
+                                VerticalAlignment="Stretch"
+                                TextBlock.FontSize="10"
+                                Orientation="Horizontal">
+                        <StackPanel.Styles>
+                            <Style Selector="Panel">
+                                <Setter Property="Width"
+                                        Value="45" />
+                                <Setter Property="Background"
+                                        Value="Transparent" />
+                            </Style>
+                            <Style Selector="Panel:pointerover">
+                                <Setter Property="Background"
+                                        Value="Red" />
+                            </Style>
+                            <Style Selector="Panel#PART_CloseButton:pointerover">
+                                <Setter Property="Background"
+                                        Value="#7FFF0000" />
+                            </Style>
+                            <Style Selector="Viewbox">
+                                <Setter Property="Width"
+                                        Value="11" />
+                                <Setter Property="Margin"
+                                        Value="2" />
+                            </Style>
+                        </StackPanel.Styles>
+
+                        <Panel x:Name="PART_FullScreenButton"
+                               IsVisible="False">
+                            <Viewbox>
+                                <Path Stretch="UniformToFill"
+                                      Fill="{TemplateBinding Foreground}" />
+                            </Viewbox>
+                        </Panel>
+
+                        <Panel x:Name="PART_MinimiseButton"
+                               IsVisible="False">
+                            <Viewbox>
+                                <Path Stretch="UniformToFill"
+                                      Fill="{TemplateBinding Foreground}"
+                                      Data="M2048 1229v-205h-2048v205h2048z" />
+                            </Viewbox>
+                        </Panel>
+
+                        <Panel x:Name="PART_RestoreButton"
+                               IsVisible="False">
+                            <Viewbox>
+                                <Viewbox.RenderTransform>
+                                    <RotateTransform Angle="-90" />
+                                </Viewbox.RenderTransform>
+                                <Path Stretch="UniformToFill"
+                                      Fill="{TemplateBinding Foreground}"/>
+                            </Viewbox>
+                        </Panel>
+
+                        <Panel x:Name="PART_CloseButton">
+                            <Viewbox>
+                                <Path Stretch="UniformToFill"
+                                      Fill="{TemplateBinding Foreground}"
+                                      Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
+                            </Viewbox>
+                        </Panel>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </Window.Styles>
+
+    <Button Margin="20"
+            Content="Hello"
+            HorizontalAlignment="Center"
+            VerticalContentAlignment="Center"/>
+</Window>

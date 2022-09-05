@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1_Throttle_RaceCondition", "ConsoleApp1_Throttle_RaceCondition.csproj", "{B93D876D-52E4-4B2B-9848-3895709A6167}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B93D876D-52E4-4B2B-9848-3895709A6167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B93D876D-52E4-4B2B-9848-3895709A6167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B93D876D-52E4-4B2B-9848-3895709A6167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B93D876D-52E4-4B2B-9848-3895709A6167}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C2E8FF8-5C81-49B9-891C-1D455C3DE69B}
+	EndGlobalSection
+EndGlobal

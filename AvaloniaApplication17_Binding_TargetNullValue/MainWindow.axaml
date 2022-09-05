@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AvaloniaApplication17_Binding_TargetNullValue"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaApplication17_Binding_TargetNullValue.MainWindow"
+        Title="AvaloniaApplication17_Binding_TargetNullValue">
+  <StackPanel>
+    <StackPanel.Resources>
+      <local:Converter1 x:Key="conv1" />
+    </StackPanel.Resources>
+
+    <StackPanel.Styles>
+      <Style Selector="local|Control1">
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate>
+              <!--<Border Background="{TemplateBinding Percent, Converter={StaticResource conv1}}" />-->
+              <!--<Border Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Percent, Converter={StaticResource conv1}}" />-->
+              <Border>
+                <Border.Background>
+                  <MultiBinding Converter="{StaticResource conv1}" Mode="OneWay">
+                    <Binding Path="Percent" RelativeSource="{RelativeSource TemplatedParent}" FallbackValue="0" TargetNullValue="0"  />
+                    <!--<TemplateBinding Property="Percent" />-->
+                  </MultiBinding>
+                </Border.Background>
+              </Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </StackPanel.Styles>
+
+    <local:Control1 Width="100" Height="100" />
+  </StackPanel>
+</Window>

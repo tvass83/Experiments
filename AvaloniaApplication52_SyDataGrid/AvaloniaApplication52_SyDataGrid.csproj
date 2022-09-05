@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <OutputPath>D:\dev\repos\BaseballLogger\Output\bin\Debug\Synergy.BaseballLogger.Win32App\</OutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="App.xaml" />
+        <None Remove="MainWindow.xaml" />
+        <None Remove="SynergyLogoBig.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AvaloniaXaml Include="App.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </AvaloniaXaml>
+        <AvaloniaXaml Include="MainWindow.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </AvaloniaXaml>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="SynergyLogoBig.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="0.10.6" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.6" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.6" />
+        <Reference Include="d:\dev\repos\BaseballLogger\Output\bin\Debug\Synergy.BaseballLogger.Win32App\Synergy.Controls.dll" Version="2.0.1.9999" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Update="App.xaml.cs">
+            <DependentUpon>App.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="MainWindow.xaml.cs">
+            <DependentUpon>MainWindow.xaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
+</Project>

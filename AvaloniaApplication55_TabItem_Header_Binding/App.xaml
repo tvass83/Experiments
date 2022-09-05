@@ -1,0 +1,100 @@
+<Application x:Class="AvaloniaApplication55_TabItem_Header_Binding.App"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Styles>
+        <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
+        <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml" />
+
+        <Style Selector="TabControl.specialHeaders">
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="1,0,1,0" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            Margin="{TemplateBinding Margin}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                        <Grid RowDefinitions="Auto,*">
+
+                            <Grid ColumnDefinitions="*,Auto,*"
+                                  ShowGridLines="False">
+
+                                <Border BorderBrush="Black"
+                                        BorderThickness="0,0,0,1" />
+
+                                <ItemsPresenter Name="PART_ItemsPresenter"
+                                                Grid.Column="1"
+                                                ItemTemplate="{TemplateBinding ItemTemplate}"
+                                                Items="{TemplateBinding Items}"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                Margin="0,0,0,-1" />
+
+                                <Border BorderBrush="Black"
+                                        BorderThickness="0,0,0,1"
+                                        Grid.Column="2" />
+
+                            </Grid>
+
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Grid.Row="1">
+
+                                <ContentPresenter Name="PART_SelectedContentHost"
+                                                  Content="{TemplateBinding SelectedContent}"
+                                                  ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="TabControl.specialHeaders > TabItem">
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="1,1,1,2" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeRegular}" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="20,10" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Content="{TemplateBinding Header}"
+                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      Margin="{TemplateBinding Margin}"
+                                      Padding="{TemplateBinding Padding}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="TabControl.specialHeaders > TabItem:selected">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderThickness" Value="1,1,1,0" />
+        </Style>
+
+        <Style Selector="TabControl.specialHeaders > TabItem:pointerover">
+            <Setter Property="Background" Value="#FFEEEEEE" />
+        </Style>
+
+        <Style Selector="TabControl.specialHeaders > TabItem:selected:pointerover">
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </Application.Styles>
+</Application>

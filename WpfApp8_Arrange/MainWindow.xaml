@@ -1,0 +1,69 @@
+﻿<Window x:Class="WpfApp8_Arrange.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WpfApp8_Arrange"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Height="450"
+        Width="800"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToHiddenConverter"
+                                         FalseValue="Collapsed"
+                                         TrueValue="Visible" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+
+            <Button Command="{Binding NavigateCommand}"
+                    CommandParameter="A"
+                    Content="SubView1" />
+
+            <Button Command="{Binding NavigateCommand}"
+                    CommandParameter="B"
+                    Content="SubView2" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid Visibility="{Binding !ViewToggle, Converter={StaticResource BoolToHiddenConverter}}">
+                <TextBlock Text="SubView1" />
+            </Grid>
+
+            <Grid x:Name="mainGrid"
+                  ShowGridLines="True"
+                  Visibility="{Binding ViewToggle, Converter={StaticResource BoolToHiddenConverter}}">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ItemsControl x:Name="list"
+                              Background="Pink"
+                              FontFamily="Consolas"
+                              Grid.Column="1"
+                              ItemsSource="{Binding Tracks}"
+                              VerticalAlignment="Top" />
+
+                <Grid Grid.Row="1" />
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>
