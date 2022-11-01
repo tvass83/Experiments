@@ -1,0 +1,93 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ava="clr-namespace:Avalonia.Animation.Animators;assembly=Avalonia.Visuals">
+
+    <Design.PreviewWith>
+        <Border Padding="10">
+            <StackPanel Orientation="Horizontal">
+                <BusySpinner2 IsVisible="True"
+                              EnableStepMode="True"
+                              Foreground="Black"
+                              Height="120" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="BusySpinner2">
+        <Setter Property="Foreground" Value="#88CCCCCC" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Name="viewbox"
+                         Stretch="Uniform">
+                    <Viewbox.RenderTransform>
+                        <RotateTransform />
+                    </Viewbox.RenderTransform>
+
+                    <Canvas Width="120"
+                            Height="120">
+
+                        <Canvas.Styles>
+                            <Style Selector="Ellipse">
+                                <!-- TemplateBinding to Foreground directly does not work as the context is unexpected -->
+                                <Setter Property="Fill" Value="{TemplateBinding TemplatedControl.Foreground}" />
+                                <Setter Property="Height" Value="20" />
+                                <Setter Property="Width" Value="20" />
+                            </Style>
+                        </Canvas.Styles>
+
+                        <Ellipse Canvas.Left="50.00000"
+                                 Canvas.Top="100.00000"
+                                 Opacity="1.0" />
+
+                        <Ellipse Canvas.Left="79.38926"
+                                 Canvas.Top="90.45085"
+                                 Opacity="0.9" />
+
+                        <Ellipse Canvas.Left="97.55283"
+                                 Canvas.Top="65.45085"
+                                 Opacity="0.8" />
+
+                        <Ellipse Canvas.Left="97.55283"
+                                 Canvas.Top="34.54915"
+                                 Opacity="0.7" />
+
+                        <Ellipse Canvas.Left="79.38926"
+                                 Canvas.Top="9.54915"
+                                 Opacity="0.6" />
+
+                        <Ellipse Canvas.Left="50.00000"
+                                 Canvas.Top="0.00000"
+                                 Opacity="0.5" />
+
+                        <Ellipse Canvas.Left="20.61074"
+                                 Canvas.Top="9.54915"
+                                 Opacity="0.4" />
+
+                        <Ellipse Canvas.Left="2.44717"
+                                 Canvas.Top="34.54915"
+                                 Opacity="0.3" />
+
+                        <Ellipse Canvas.Left="2.44717"
+                                 Canvas.Top="65.45085"
+                                 Opacity="0.2" />
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Avalonia 0.10.7 -->
+    <!--<Style Selector="BusySpinner2[IsVisible=True] /template/ Viewbox#viewbox">
+        <Style.Animations>
+            <Animation Duration="0:0:0.750"
+                       RepeatCount="1">
+                <KeyFrame Cue="0%">
+                    <Setter Property="RotateTransform.Angle" Value="0" Animation.Animator="{x:Type DiscreteDoubleAnimator}" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="RotateTransform.Angle" Value="360" Animation.Animator="{x:Type DiscreteDoubleAnimator}" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>-->
+</Styles>
