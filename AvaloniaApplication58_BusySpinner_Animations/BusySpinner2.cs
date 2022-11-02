@@ -1,9 +1,12 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Shapes;
 using Avalonia.Media;
 using Avalonia.Threading;
+using Avalonia.VisualTree;
 using System;
+using System.Linq;
 
 namespace Synergy.Controls
 {
@@ -11,6 +14,7 @@ namespace Synergy.Controls
     {
         private DispatcherTimer _animationTimer;
         private RotateTransform _rotateTransform;
+        private Ellipse[] _ellipses;
 
         static BusySpinner2()
         {
@@ -27,6 +31,8 @@ namespace Synergy.Controls
             {
                 var _viewbox = e.NameScope.Find("viewbox") as Visual;
                 _rotateTransform = _viewbox.RenderTransform as RotateTransform;
+
+                _ellipses = _viewbox.GetVisualDescendants().OfType<Ellipse>().ToArray();
 
                 _animationTimer = new DispatcherTimer();
                 _animationTimer.Interval = TimeSpan.FromMilliseconds(75);
@@ -45,7 +51,25 @@ namespace Synergy.Controls
 
         private void OnAnimationTimerTick(object? sender, EventArgs e)
         {
-            _rotateTransform.Angle = (_rotateTransform.Angle + 36) % 360;
+            //_rotateTransform.Angle = (_rotateTransform.Angle + 36) % 360;
+            foreach (var ellipse in _ellipses)
+            {
+                ellipse.Opacity = GetNextOpacity(ellipse.Opacity);
+            }
+        }
+
+        private double GetNextOpacity(double currentOpacity)
+        {
+            double step = 0.1;
+
+            currentOpacity -= step;
+
+            if (currentOpacity < 0.05)
+            {
+                currentOpacity = 1.0;
+            }
+
+            return currentOpacity;
         }
     }
 }

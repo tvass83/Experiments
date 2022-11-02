@@ -3,12 +3,13 @@
         xmlns:ava="clr-namespace:Avalonia.Animation.Animators;assembly=Avalonia.Visuals">
 
     <Design.PreviewWith>
-        <Border Padding="10">
+        <Border Padding="10"
+                Background="Black">
             <StackPanel Orientation="Horizontal">
                 <BusySpinner2 IsVisible="True"
+                              Foreground="Orange"
                               EnableStepMode="True"
-                              Foreground="Black"
-                              Height="120" />
+                              Height="100" />
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -35,41 +36,16 @@
                             </Style>
                         </Canvas.Styles>
 
-                        <Ellipse Canvas.Left="50.00000"
-                                 Canvas.Top="100.00000"
-                                 Opacity="1.0" />
-
-                        <Ellipse Canvas.Left="79.38926"
-                                 Canvas.Top="90.45085"
-                                 Opacity="0.9" />
-
-                        <Ellipse Canvas.Left="97.55283"
-                                 Canvas.Top="65.45085"
-                                 Opacity="0.8" />
-
-                        <Ellipse Canvas.Left="97.55283"
-                                 Canvas.Top="34.54915"
-                                 Opacity="0.7" />
-
-                        <Ellipse Canvas.Left="79.38926"
-                                 Canvas.Top="9.54915"
-                                 Opacity="0.6" />
-
-                        <Ellipse Canvas.Left="50.00000"
-                                 Canvas.Top="0.00000"
-                                 Opacity="0.5" />
-
-                        <Ellipse Canvas.Left="20.61074"
-                                 Canvas.Top="9.54915"
-                                 Opacity="0.4" />
-
-                        <Ellipse Canvas.Left="2.44717"
-                                 Canvas.Top="34.54915"
-                                 Opacity="0.3" />
-
-                        <Ellipse Canvas.Left="2.44717"
-                                 Canvas.Top="65.45085"
-                                 Opacity="0.2" />
+                        <Ellipse Canvas.Left="050.00000" Canvas.Top="100.00000" Opacity="1.0" />
+                        <Ellipse Canvas.Left="079.38926" Canvas.Top="090.45085" Opacity="0.9" />
+                        <Ellipse Canvas.Left="097.55283" Canvas.Top="065.45085" Opacity="0.8" />
+                        <Ellipse Canvas.Left="097.55283" Canvas.Top="034.54915" Opacity="0.7" />
+                        <Ellipse Canvas.Left="079.38926" Canvas.Top="009.54915" Opacity="0.6" />
+                        <Ellipse Canvas.Left="050.00000" Canvas.Top="000.00000" Opacity="0.5" />
+                        <Ellipse Canvas.Left="020.61074" Canvas.Top="009.54915" Opacity="0.4" />
+                        <Ellipse Canvas.Left="002.44717" Canvas.Top="034.54915" Opacity="0.3" />
+                        <Ellipse Canvas.Left="002.44717" Canvas.Top="065.45085" Opacity="0.2" />
+                        <Ellipse Canvas.Left="020.61074" Canvas.Top="090.45085" Opacity="0.1" />
                     </Canvas>
                 </Viewbox>
             </ControlTemplate>
