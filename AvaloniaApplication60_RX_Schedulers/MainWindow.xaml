@@ -1,0 +1,24 @@
+<Window x:Class="AvaloniaApplication60_RX_Schedulers.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AvaloniaApplication60_RX_Schedulers"
+        Title="AvaloniaApplication60_RX_Schedulers"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        mc:Ignorable="d">
+
+    <Window.DataContext>
+        <local:VM />
+    </Window.DataContext>
+
+    <StackPanel Spacing="10"
+                Orientation="Horizontal">
+        <Button Content="Push New Value"
+                Command="{Binding PushValueCommand}" />
+
+        <Button Content="Dispose of Subscription"
+                Command="{Binding ResetCommand}" />
+    </StackPanel>
+</Window>
