@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+    <ItemGroup>
+    <AvaloniaXaml Include="App.xaml" />
+    <AvaloniaXaml Include="MainWindow.xaml" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.6.17" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.6.17" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.6.17" />
+    <PackageReference Include="ReactiveUI" Version="13.2.10" />
+  </ItemGroup>
+</Project>
