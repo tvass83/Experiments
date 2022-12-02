@@ -15,37 +15,46 @@ namespace Synergy.Controls
         private DispatcherTimer _animationTimer;
         private RotateTransform _rotateTransform;
         private Ellipse[] _ellipses;
+        private bool _enableStepMode = true;
 
         static BusySpinner2()
         {
             IsVisibleProperty.OverrideDefaultValue<BusySpinner2>(false);
         }
 
-        public bool EnableStepMode { get; set; }
+        public static readonly DirectProperty<BusySpinner2, bool> EnableStepModeProperty =
+            AvaloniaProperty.RegisterDirect<BusySpinner2, bool>(nameof(EnableStepMode), o => o.EnableStepMode, (o, v) => o.EnableStepMode = v);
+
+        public bool EnableStepMode
+        {
+            get => _enableStepMode;
+            set => SetAndRaise(EnableStepModeProperty, ref _enableStepMode, value);
+        }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
 
+            var _viewbox = e.NameScope.Find("PART_Spinner") as Visual;
+            _rotateTransform = _viewbox.RenderTransform as RotateTransform;
+
+            _ellipses = _viewbox.GetVisualDescendants().OfType<Ellipse>().ToArray();
+
+            _animationTimer = new DispatcherTimer();
+            _animationTimer.Interval = TimeSpan.FromMilliseconds(75);
+
             if (EnableStepMode)
             {
-                var _viewbox = e.NameScope.Find("viewbox") as Visual;
-                _rotateTransform = _viewbox.RenderTransform as RotateTransform;
-
-                _ellipses = _viewbox.GetVisualDescendants().OfType<Ellipse>().ToArray();
-
-                _animationTimer = new DispatcherTimer();
-                _animationTimer.Interval = TimeSpan.FromMilliseconds(75);
                 _animationTimer.Tick += OnAnimationTimerTick;
 
                 this.GetObservable(IsVisibleProperty)
-                    .Subscribe(isVisible =>
-                    {
-                        if (isVisible)
-                            _animationTimer.Start();
-                        else
-                            _animationTimer.Stop();
-                    });
+                   .Subscribe(isVisible =>
+                   {
+                       if (isVisible)
+                           _animationTimer.Start();
+                       else
+                           _animationTimer.Stop();
+                   });
             }
         }
 
