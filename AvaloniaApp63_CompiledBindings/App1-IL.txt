@@ -1,0 +1,63 @@
+// AvaloniaApp1.MainWindow
+using System;
+using System.ComponentModel;
+using Avalonia;
+using Avalonia.Collections;
+using Avalonia.Controls;
+using Avalonia.Data;
+using Avalonia.Layout;
+using Avalonia.Markup.Xaml.MarkupExtensions;
+using CompiledAvaloniaXaml;
+
+static void !XamlIlPopulate(IServiceProvider P_0, MainWindow P_1)
+{
+	CompiledAvaloniaXaml.XamlIlContext.Context<MainWindow> context = new CompiledAvaloniaXaml.XamlIlContext.Context<MainWindow>(P_0, new object[1] { CompiledAvaloniaXaml.!AvaloniaResources.NamespaceInfo:/MainWindow.xaml.Singleton }, "avares://AvaloniaApp1/MainWindow.xaml");
+	context.RootObject = P_1;
+	context.IntermediateRoot = P_1;
+	((ISupportInitialize)P_1).BeginInit();
+	context.PushParent(P_1);
+	P_1.Title = "AvaloniaApp1";
+	((Layoutable)(object)P_1).Height = 300.0;
+	((Layoutable)(object)P_1).Width = 600.0;
+	((StyledElement)(object)P_1).DataContext = new ViewModel();
+	StackPanel stackPanel;
+	StackPanel stackPanel2 = (stackPanel = new StackPanel());
+	((ISupportInitialize)stackPanel2).BeginInit();
+	P_1.Content = stackPanel2;
+	StackPanel stackPanel3;
+	StackPanel stackPanel4 = (stackPanel3 = stackPanel);
+	context.PushParent(stackPanel3);
+	((Layoutable)(object)stackPanel3).HorizontalAlignment = HorizontalAlignment.Center;
+	stackPanel3.Orientation = Orientation.Horizontal;
+	stackPanel3.Spacing = 10.0;
+	((Layoutable)(object)stackPanel3).VerticalAlignment = VerticalAlignment.Center;
+	Button button;
+	Button button2 = (button = new Button());
+	((ISupportInitialize)button2).BeginInit();
+	IControl control = button2;
+	Controls children = stackPanel3.Children;
+	control = control;
+	((AvaloniaList<IControl>)children).Add(control);
+	Button button3;
+	Button button4 = (button3 = button);
+	context.PushParent(button3);
+	ReflectionBindingExtension reflectionBindingExtension = new ReflectionBindingExtension("TestCommand");
+	context.ProvideTargetProperty = Button.CommandProperty;
+	Binding binding = reflectionBindingExtension.ProvideValue(context);
+	context.ProvideTargetProperty = null;
+	IBinding binding2 = binding;
+	button3.Bind(Button.CommandProperty, binding2);
+	button3.Content = "Test";
+	button3.Padding = new Thickness(10.0, 5.0, 10.0, 5.0);
+	context.PopParent();
+	((ISupportInitialize)button4).EndInit();
+	context.PopParent();
+	((ISupportInitialize)stackPanel4).EndInit();
+	context.PopParent();
+	((ISupportInitialize)P_1).EndInit();
+	if (P_1 is StyledElement styled)
+	{
+		NameScope.SetNameScope(styled, context.AvaloniaNameScope);
+	}
+	context.AvaloniaNameScope.Complete();
+}
