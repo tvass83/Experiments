@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AvaloniaApplication60_RX_Schedulers"
         Title="AvaloniaApplication60_RX_Schedulers"
-        d:DesignWidth="800"
-        d:DesignHeight="450"
+        Width="800"
+        Height="450"
         mc:Ignorable="d">
 
     <Window.DataContext>

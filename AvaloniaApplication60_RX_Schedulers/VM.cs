@@ -2,10 +2,12 @@
 using ReactiveUI;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace AvaloniaApplication60_RX_Schedulers
 {
@@ -27,17 +29,27 @@ namespace AvaloniaApplication60_RX_Schedulers
             return _subject
                 .Do(guid => Debug.WriteLine($"TV: Thread #{Environment.CurrentManagedThreadId} OnNext() called"))
                 .ObserveOn(TaskPoolScheduler.Default)
-                .Subscribe(guid =>
+                .Do(guid => Debug.WriteLine($"TV: Thread #{Environment.CurrentManagedThreadId} ObserveOn() called"))
+                .Select(_ =>
                 {
-                    Debug.WriteLine($"TV: Thread #{Environment.CurrentManagedThreadId} ObserveOn()");
-                    Debug.WriteLine($"TV: ...");
-                });
+                    Debug.WriteLine($"TV: Thread #{Environment.CurrentManagedThreadId} Select()");
+
+                    return Observable.FromAsync(async () =>
+                    {
+                        Debug.WriteLine($"TV: Thread #{Environment.CurrentManagedThreadId} FromAsync()");
+                        await Task.Delay(5000);
+                        Debug.WriteLine($"TV: Thread #{Environment.CurrentManagedThreadId} After Delay()");
+                        Debug.WriteLine($"TV: ...");
+                    });
+                })
+                .Concat()
+                .Subscribe();
         }
 
         private void OnPushValue()
         {
-            var a = AvaloniaScheduler.Instance;
-            var b = RxApp.MainThreadScheduler;
+            //var a = AvaloniaScheduler.Instance;
+            //var b = RxApp.MainThreadScheduler;
 
             //ThreadPool.QueueUserWorkItem(o =>
             //{
