@@ -15,23 +15,25 @@
         <local:ViewModel />
     </Window.DataContext>
 
-    <Grid RowDefinitions="50,10,*,10"
-          Margin="20,0">
+    <Grid RowDefinitions="Auto,*"
+          Margin="20,10">
 
-        <StackPanel Orientation="Horizontal"
-                    Spacing="10">
+        <TabStrip Name="tabstrip"
+                  HorizontalAlignment="Left"
+                  SelectedIndex="{Binding SelectedTabIndex}">
 
-            <Button Command="{Binding BreakCommand}"
-                    Content="Break"
-                    Padding="10,5" />
+            <TabStripItem Content="#1"
+                          Padding="0,0,16,0" />
 
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Press break then resize the window so that the listbox items become invisible." />
-                <TextBlock Text="Then start resizing back to normal size so that the items become visible again." />
-            </StackPanel>
-        </StackPanel>
+            <TabStripItem Content="#2"
+                          Margin="0,16,16,16" />
+        </TabStrip>
 
-        <ListBox Grid.Row="2"
-                 Items="{Binding Values}" />
+        <Carousel SelectedIndex="{Binding #tabstrip.SelectedIndex}"
+                  Grid.Row="1">
+
+            <ListBox Items="{Binding Values}" />
+            <TextBlock Text="Empty Content..." />
+        </Carousel>
     </Grid>
 </Window>

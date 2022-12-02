@@ -1,4 +1,5 @@
-﻿using Avalonia.Threading;
+﻿using Avalonia.Layout;
+using Avalonia.Threading;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -13,26 +14,46 @@ namespace AvaloniaApp62_Virtualization_LazyEnumerable
 {
     public class ViewModel : ReactiveObject
     {
+        private int _selectedTabIndex;
+        private IEnumerable<string> _values;
         private List<string> _internalValues;
 
         public ViewModel()
         {
-            BreakCommand = ReactiveCommand.Create(OnBreak);
-
             _internalValues = new List<string>();
-            _internalValues.AddRange(new[] { "Tom1", "Tom2" });
 
             // Just a stupid filter to test lazy evaluation
-            Values = _internalValues.Where(_ => _.StartsWith("T"));
+            _values = GetLazyValues();
+
+            this.WhenAnyValue(_ => _.SelectedTabIndex)
+                .Skip(1)
+                .Subscribe(_ =>
+                {
+                    _internalValues.Clear();
+
+                    AvaloniaScheduler.Instance.Schedule(TimeSpan.FromMilliseconds(1), () =>
+                    {
+                        _internalValues.AddRange(new[] { "Tom1", "Tom2" });
+                        Values = GetLazyValues();
+                    });
+                });
         }
 
-        public ReactiveCommandBase<Unit, Unit> BreakCommand { get; }
-
-        public IEnumerable<string> Values { get; }
-
-        private void OnBreak()
+        public int SelectedTabIndex
         {
-            _internalValues.Clear();
+            get => _selectedTabIndex;
+            set => this.RaiseAndSetIfChanged(ref _selectedTabIndex, value);
+        }
+
+        public IEnumerable<string> Values
+        {
+            get => _values;
+            set => this.RaiseAndSetIfChanged(ref _values, value);
+        }
+
+        private IEnumerable<string> GetLazyValues()
+        {
+            return _internalValues.Where(_ => _.StartsWith("T"));
         }
     }
 }
