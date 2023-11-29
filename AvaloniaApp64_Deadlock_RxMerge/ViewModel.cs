@@ -39,28 +39,28 @@ namespace AvaloniaApp64_Deadlock_RxMerge
         {
             var a = AvaloniaScheduler.Instance;
             var b = RxApp.MainThreadScheduler;
+            Debug.Assert(a == b);
+
+            // ProcessQueue
+            Task.Run(() =>
             {
-                // ProcessQueue
-                Task.Run(() =>
+                lock (_encodeLock)
                 {
-                    lock (_encodeLock)
-                    {
-                        Debug.WriteLine($"TV: Acquired lock in ProcessQueue!");
+                    Debug.WriteLine($"TV: Acquired lock in ProcessQueue!");
 
-                        Thread.Sleep(1000);
+                    Thread.Sleep(1000);
 
-                        Debug.WriteLine($"TV: EncodesStarted emits new value");
-                        EncodesStarted.OnNext(null);
-                    }
-                });
+                    Debug.WriteLine($"TV: EncodesStarted emits new value");
+                    EncodesStarted.OnNext(null);
+                }
+            });
 
-                // EncodeComplete
-                Task.Run(() =>
-                {
-                    Debug.WriteLine($"TV: EncodeComplete emits new value");
-                    EncodeComplete.OnNext(null);
-                });
-            }
+            // EncodeComplete
+            Task.Run(() =>
+            {
+                Debug.WriteLine($"TV: EncodeComplete emits new value");
+                EncodeComplete.OnNext(null);
+            });
         }
 
         private object _encodeLock = new();
