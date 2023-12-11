@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <TargetFrameworks>net6.0</TargetFrameworks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AvaloniaXaml Include="App.xaml" />
+        <AvaloniaXaml Include="MainWindow.xaml" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <AvaloniaVersion>0.10.17</AvaloniaVersion>
+        <ReactiveUIVersion>13.2.10</ReactiveUIVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Direct2D1" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Skia" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="ReactiveUI" Version="$(ReactiveUIVersion)" />
+        <PackageReference Include="ReactiveUI.Fody" Version="$(ReactiveUIVersion)" />
+    </ItemGroup>
+</Project>
