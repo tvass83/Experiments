@@ -23,12 +23,14 @@ namespace AvaloniaApp65_FodyIssues
         private void Issue1()
         {
             // Throws System.InvalidProgramException: Common Language Runtime detected an invalid program
+            // See https://github.com/reactiveui/ReactiveUI/issues/2688
             var t = new Test();
         }
 
         private void Issue2()
         {
             // Throws System.MissingFieldException: Field not found: 'AvaloniaApp65_FodyIssues.GenTest`1.<Flag>k__BackingField'
+            // See https://github.com/reactiveui/ReactiveUI/issues/2416
             var t = new GenTest<bool>();
         }
     }
