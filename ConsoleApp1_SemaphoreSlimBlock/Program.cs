@@ -29,11 +29,10 @@
             _cts.Cancel();
             _cts.Dispose();
 
-            // Changing the order of these lines can cause a deadlock, as disposing the semaphore changes its internal state
-            // and the implementation does not 
+            // Changing the order of these lines fixes a potential (yet very likely) deadlock, as disposing the semaphore changes its internal state
             // see https://github.com/dotnet/runtime/blob/release/6.0/src/libraries/System.Private.CoreLib/src/System/Threading/SemaphoreSlim.cs#L728-L730
-            _workerTask.Wait();
             _semaphore.Dispose();
+            _workerTask.Wait();
         }
 
         private async Task WorkerLoop(CancellationToken cts)
@@ -45,6 +44,9 @@
                 try
                 {
                     // Seems cancelling cts is not respected all the time if semaphore is disposed before waiting on the worker task
+                    // The reason is there's a race condition for these 2 method calls:
+                    // Thread 1: SemaphoreSlim.Dispose
+                    // Thread 2: SemaphoreSlim.RemoveAsyncWaiter
                     await _semaphore.WaitAsync(cts);
                 }
                 catch (OperationCanceledException) { }
