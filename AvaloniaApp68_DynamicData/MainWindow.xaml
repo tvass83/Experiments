@@ -1,0 +1,60 @@
+<Window x:Class="DynamicDataTest.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DynamicDataTest"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="DynamicDataTest"
+        x:CompileBindings="True"
+        x:DataType="local:ViewModel"
+        Height="300"
+        Width="600"
+        mc:Ignorable="d">
+
+    <Window.DataContext>
+        <local:ViewModel />
+    </Window.DataContext>
+
+    <StackPanel Spacing="20">
+        <StackPanel HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    VerticalAlignment="Center">
+
+            <Button Command="{Binding AddModelCommand}"
+                    Content="AddModelCommand"
+                    Padding="10,5" />
+
+            <Button Command="{Binding RemoveModelCommand}"
+                    CommandParameter="{Binding #models.SelectedItem}"
+                    Content="RemoveModelCommand"
+                    Padding="10,5" />
+
+            <Button Command="{Binding IncreaseAgeCommand}"
+                    Content="IncreaseAgeCommand"
+                    Padding="10,5" />
+
+            <Button Command="{Binding ClearAllCommand}"
+                    Content="ClearAllCommand"
+                    Padding="10,5" />
+        </StackPanel>
+
+        <ListBox x:Name="models"
+                 FontFamily="Consolas"
+                 Items="{Binding Models}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}Id: {0} Name: {1} Age:{2}">
+                                <Binding Path="Id" />
+                                <Binding Path="Person.Name" />
+                                <Binding Path="Person.Age" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>
