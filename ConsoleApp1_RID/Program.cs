@@ -6,7 +6,7 @@ namespace ConsoleApp1_RID
     {
         static void Main(string[] args)
         {
-            new Window();
+            //new Window();
         }
     }
 }

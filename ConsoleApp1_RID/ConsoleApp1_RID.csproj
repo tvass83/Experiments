@@ -2,10 +2,11 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFrameworks>net6.0-windows</TargetFrameworks>
-        <PlatformTarget>AnyCPU</PlatformTarget>
+        <TargetFrameworks>net8.0-windows</TargetFrameworks>
         <!-- Makes it implicitly SelfContained -->
         <!--<RuntimeIdentifier>win-x64</RuntimeIdentifier>-->
+        <!--<RuntimeIdentifiers>win-x64</RuntimeIdentifiers>-->
+        <!--<SelfContained>True</SelfContained>-->
     </PropertyGroup>
 
     <PropertyGroup>
@@ -15,12 +16,13 @@
 
         <!-- Ignored -->
         <!--<UseWindowsForms>true</UseWindowsForms>-->
-        <!--<UseWPF>false</UseWPF>-->
-        <TomiA>true2</TomiA>
-        <TomiB Condition="'$(TomiA)'=='True'">TRUE</TomiB>
+        <!--<UseWPF>true</UseWPF>-->
+        <!--<TomiA>true2</TomiA>-->
+        <!--<TomiB Condition="'$(TomiA)'=='True'">TRUE</TomiB>-->
     </PropertyGroup>
 
     <ItemGroup>
+        <!--<PackageReference Include="Avalonia" Version="0.10.22" />-->
         <PackageReference Include="ReactiveUI" Version="13.3.2" />
 
         <!-- .NET Runtime -->
@@ -36,8 +38,14 @@
         <!--<FrameworkReference Remove="Microsoft.WindowsDesktop.App" />-->
     </ItemGroup>
 
-    <Target Name="TomiTarget" AfterTargets="Build">
+    <ItemGroup>
+      <None Update="Properties\PublishProfiles\win.pubxml">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <!--<Target Name="TomiTarget" AfterTargets="Build">
         <Message Text="TomiA: $(TomiA)" Importance="high" />
         <Message Text="TomiB: $(TomiB)" Importance="high" />
-    </Target>
+    </Target>-->
 </Project>
